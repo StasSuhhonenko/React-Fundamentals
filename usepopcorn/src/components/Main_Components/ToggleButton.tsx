@@ -3,10 +3,10 @@ export default function ToggleButton({
   onToggle,
 }: {
   value: boolean;
-  onToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  onToggle: () => void;
 }) {
   return (
-    <button className="btn-toggle" onClick={() => onToggle((open) => !open)}>
+    <button className="btn-toggle" onClick={onToggle}>
       {value ? "–" : "+"}
     </button>
   );

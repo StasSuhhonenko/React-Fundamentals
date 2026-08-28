@@ -1,10 +1,6 @@
-import type { TempWatchedData } from "../../types";
+import type { WatchedMovies } from "../../types";
 
-export default function WatchedStats({
-  watched,
-}: {
-  watched: TempWatchedData;
-}) {
+export default function WatchedStats({ watched }: { watched: WatchedMovies }) {
   const average = (arr: number[]) =>
     arr.reduce((acc, cur) => acc + cur / arr.length, 0);
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
@@ -20,11 +16,11 @@ export default function WatchedStats({
         </p>
         <p>
           <span>⭐️</span>
-          <span>{avgImdbRating}</span>
+          <span>{avgImdbRating.toFixed(2)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{avgUserRating}</span>
+          <span>{avgUserRating.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
